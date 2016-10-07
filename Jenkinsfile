@@ -10,8 +10,10 @@ node {
     /* Checkout the code we are currently running against */
     checkout scm
 
-   stage 'Build'
-    sh("kubectl get pods")
+   stage 'Run app on Kubernetes'
+    withKubernetes( serverUrl: 'https://kube.univision.com', credentialsId: 'kube-aws-kube-global2-admin' ) {
+          sh 'kubectl get pods'
+    }
 
 
     }
