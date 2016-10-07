@@ -11,9 +11,6 @@ node {
     checkout scm
 
    stage 'Run app on Kubernetes'
-#    withKubernetes( serverUrl: 'https://kube.univision.com', credentialsId: 'kube-aws-kube-global2-admin' ) {
-#          sh 'kubectl get pods'
-#    }
    wrap([$class: 'KubectlBuildWrapper', serverURL: 'https://kube.univision.com', credentialsId: 'kube-aws-kube-global2-admin' ]) {
        sh 'kubectl get pods'
      } 
