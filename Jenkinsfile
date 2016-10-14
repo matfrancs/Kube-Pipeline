@@ -13,5 +13,6 @@ node {
    stage 'Run app on Kubernetes'
        sh 'kubectl get pods --namespace jenkins'
        sh 'kubectl get services --namespace jenkins'
+       sh 'docker ps'
 
     }
