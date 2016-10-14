@@ -11,6 +11,6 @@ node {
     checkout scm
 
    stage 'Run app on Kubernetes'
-       sh 'kubectl get pods'
+       sh 'kubectl get pods --namespace jenkins'
 
     }
